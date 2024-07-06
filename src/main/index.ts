@@ -6,9 +6,12 @@ import icon from '../../resources/icon.png?asset'
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 600,
-    height: 670,
+    width: 300,
+    height: 300,
+    x: 1100,
+    y: 100,
     show: false,
+    frame: false, // 去掉应用栏
     autoHideMenuBar: true,
     alwaysOnTop: true,
     ...(process.platform === 'linux' ? { icon } : {}),
@@ -18,10 +21,11 @@ function createWindow(): void {
     }
   })
 
+  mainWindow.webContents.openDevTools()
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
   })
-
+  // 超链接时打开浏览器而不是新窗口
   mainWindow.webContents.setWindowOpenHandler((details) => {
     shell.openExternal(details.url)
     return { action: 'deny' }
