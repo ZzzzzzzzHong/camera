@@ -4,7 +4,7 @@ import 'element-plus/dist/index.css'
 import { createApp } from 'vue'
 
 import App from './App.vue'
-import './assets/main.css'
+import './style/index.js'
 
 const app = createApp(App)
 
