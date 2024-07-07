@@ -26,6 +26,7 @@ function createWindow(): void {
   })
 
   mainWindow.webContents.openDevTools()
+  mainWindow.setAspectRatio(1) // 保持比例缩放
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
   })
