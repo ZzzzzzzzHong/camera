@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import Camera from './components/Camera.vue'
-import Setting from './components/Setting.vue'
+import CameraSetting from './components/CameraSetting.vue'
 
 const page = ref('camera')
 </script>
@@ -9,7 +9,7 @@ const page = ref('camera')
   <div>
     <Suspense>
       <Camera v-if="page === 'camera'"></Camera>
-      <Setting v-else></Setting>
+      <CameraSetting v-else></CameraSetting>
     </Suspense>
   </div>
 </template>
