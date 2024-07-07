@@ -1,8 +1,15 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue'
+import Camera from './components/Camera.vue'
+import Setting from './components/Setting.vue'
 
+const page = ref('camera')
+</script>
 <template>
   <div>
-    <el-button type="success" class="mr-4">Success</el-button>
-    <el-button type="success">？？？？</el-button>
+    <Suspense>
+      <Camera v-if="page === 'camera'"></Camera>
+      <Setting v-else></Setting>
+    </Suspense>
   </div>
 </template>
