@@ -1,6 +1,11 @@
 <template>
   <div class="h-screen w-screen relative">
-    <el-icon color="#409efc" class="absoule top-2 left-2"> <Edit /></el-icon>
+    <el-icon
+      color="#ccc"
+      class="absolute h-6 z-10 w-full bg-slate-900/50 cursor-pointer top-0 left-1/2 -translate-x-1/2"
+    >
+      <Setting />
+    </el-icon>
     <video ref="cameraVideo" class="h-full object-cover"></video>
   </div>
 </template>
