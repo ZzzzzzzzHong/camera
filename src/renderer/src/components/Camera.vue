@@ -1,23 +1,17 @@
-<template>
-  <div class="h-screen w-screen relative">
-    <el-icon
-      color="#ccc"
-      class="absolute h-6 z-10 w-full bg-slate-900/50 cursor-pointer top-0 left-1/2 -translate-x-1/2"
-    >
-      <Setting />
-    </el-icon>
-    <video ref="cameraVideo" class="h-full object-cover"></video>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { ElMessage } from 'element-plus'
 import { onMounted, ref } from 'vue'
+import { useConfig } from '../composables/useConfig'
+defineEmits(['change-page'])
+const { config } = useConfig()
 
 const constraints = {
   audio: false,
-  video: true
-}
+  video: {
+    deviceId: config.value.deviceId
+  }
+} as MediaStreamConstraints
+
 const cameraVideo = ref<HTMLVideoElement | null>(null)
 
 onMounted(() => {
@@ -35,4 +29,21 @@ onMounted(() => {
 })
 </script>
 
+<template>
+  <div
+    class="h-screen w-screen relative overflow-hidden"
+    :style="`border:
+    ${config.borderWidth}px
+    solid
+    ${config.borderColor}`"
+  >
+    <el-icon
+      class="text-stone-300 absolute h-8 z-10 w-full bg-slate-900/60 cursor-pointer top-0 left-1/2 -translate-x-1/2"
+      @click="$emit('change-page')"
+    >
+      <Setting />
+    </el-icon>
+    <video ref="cameraVideo" class="h-full object-cover"></video>
+  </div>
+</template>
 <style></style>
