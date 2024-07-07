@@ -6,14 +6,18 @@ import icon from '../../resources/icon.png?asset'
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 300,
-    height: 300,
-    x: 1100,
-    y: 100,
+    width: 190,
+    minWidth: 160,
+    maxWidth: 300,
+    height: 190,
+    minHeight: 160,
+    maxHeight: 300,
+    center: true,
     show: false,
     frame: false, // 去掉应用栏
-    autoHideMenuBar: true,
-    alwaysOnTop: true,
+    autoHideMenuBar: true, // 隐藏菜单栏
+    alwaysOnTop: true, // 置于顶层
+    // transparent: true,
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
