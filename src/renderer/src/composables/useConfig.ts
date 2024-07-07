@@ -4,12 +4,14 @@ type ConfigType = {
   deviceId: string
   borderColor: string
   borderWidth: string
+  rounded: boolean
 }
 
 const initConfig: ConfigType = {
   deviceId: '',
   borderColor: '#54a0ff',
-  borderWidth: '0'
+  borderWidth: '0',
+  rounded: false
 }
 
 export const useConfig = () => {

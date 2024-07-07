@@ -32,6 +32,7 @@ onMounted(() => {
 <template>
   <div
     class="h-screen w-screen relative overflow-hidden"
+    :class="{ 'rounded-full': config.rounded }"
     :style="`border:
     ${config.borderWidth}px
     solid
@@ -44,6 +45,12 @@ onMounted(() => {
       <Setting />
     </el-icon>
     <video ref="cameraVideo" class="h-full object-cover"></video>
+    <el-icon
+      class="text-stone-300 absolute h-8 z-10 w-full bg-slate-900/60 cursor-pointer bottom-0 left-1/2 -translate-x-1/2"
+      @click="config.rounded = !config.rounded"
+    >
+      <Notification />
+    </el-icon>
   </div>
 </template>
 <style></style>

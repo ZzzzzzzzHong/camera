@@ -9,8 +9,11 @@ const cameras = devices.filter((d) => d.kind === 'videoinput') // 获取摄像�
 </script>
 
 <template>
-  <main class="px-4 flex flex-col items-center overflow-hidden">
-    <div class="pt-4 pb-2 flex items-center cursor-pointer text-black" @click="$emit('change-page')">
+  <main class="px-4 flex flex-col items-center overflow-hidden bg-[#c8d6e5]">
+    <div
+      class="pt-4 pb-2 flex items-center cursor-pointer text-black"
+      @click="$emit('change-page')"
+    >
       <el-icon><Camera /></el-icon>
       <span class="text-xs">参数设置</span>
     </div>
@@ -26,6 +29,7 @@ const cameras = devices.filter((d) => d.kind === 'videoinput') // 获取摄像�
     <el-input v-model="config.borderWidth" class="mb-2" placeholder="边框宽度">
       <template #append>px</template>
     </el-input>
+    <el-input v-model="config.borderColor" class="mb-2" placeholder="边框颜色"> </el-input>
     <el-input v-model="config.borderColor" class="mb-2" placeholder="边框颜色"> </el-input>
     <el-button type="primary" plain class="w-full" @click="updateConfig">保存</el-button>
     <AuthorInfo />

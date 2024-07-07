@@ -17,7 +17,7 @@ function createWindow(): void {
     frame: false, // 去掉应用栏
     autoHideMenuBar: true, // 隐藏菜单栏
     alwaysOnTop: true, // 置于顶层
-    // transparent: true,
+    transparent: true,
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
