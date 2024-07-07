@@ -24,32 +24,33 @@ onMounted(() => {
       }
     })
     .catch((error) => {
-      ElMessage.error(error)
+      ElMessage.error('无法打开摄像头')
+      console.error(error)
     })
 })
 </script>
 
 <template>
   <div
-    class="h-screen w-screen relative overflow-hidden"
+    class="h-screen w-screen relative overflow-hidden group"
     :class="{ 'rounded-full': config.rounded }"
     :style="`border:
     ${config.borderWidth}px
     solid
     ${config.borderColor}`"
   >
-    <el-icon
-      class="text-stone-300 absolute h-8 z-10 w-full bg-slate-900/60 cursor-pointer top-0 left-1/2 -translate-x-1/2"
-      @click="$emit('change-page')"
-    >
-      <Setting />
-    </el-icon>
     <video ref="cameraVideo" class="h-full object-cover"></video>
     <el-icon
-      class="text-stone-300 absolute h-8 z-10 w-full bg-slate-900/60 cursor-pointer bottom-0 left-1/2 -translate-x-1/2"
+      class="text-stone-300 absolute h-0 z-10 w-full bg-slate-900/60 cursor-pointer top-0 left-1/2 -translate-x-1/2 group-hover:h-8 duration-500"
+      @click="$emit('change-page')"
+    >
+      <Setting class="hidden group-hover:block" />
+    </el-icon>
+    <el-icon
+      class="text-stone-300 absolute h-0 z-10 w-full bg-slate-900/60 cursor-pointer bottom-0 left-1/2 -translate-x-1/2 group-hover:h-8 duration-500"
       @click="config.rounded = !config.rounded"
     >
-      <Notification />
+      <Notification class="hidden group-hover:block" />
     </el-icon>
   </div>
 </template>
