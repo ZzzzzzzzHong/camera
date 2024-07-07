@@ -30,7 +30,6 @@ const cameras = devices.filter((d) => d.kind === 'videoinput') // 获取摄像�
       <template #append>px</template>
     </el-input>
     <el-input v-model="config.borderColor" class="mb-2" placeholder="边框颜色"> </el-input>
-    <el-input v-model="config.borderColor" class="mb-2" placeholder="边框颜色"> </el-input>
     <el-button type="primary" plain class="w-full" @click="updateConfig">保存</el-button>
     <AuthorInfo />
   </main>
