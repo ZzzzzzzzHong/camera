@@ -29,7 +29,7 @@ class Drag {
   }
 
   constructor() {
-    console.log('qeqeeq')
+    console.log()
   }
 }
 
