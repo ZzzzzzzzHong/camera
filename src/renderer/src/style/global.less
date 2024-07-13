@@ -3,7 +3,20 @@
   padding: 0;
 }
 
+// 在该元素上拖动鼠标时，整个窗口可以被拖动
 html {
-  height: 100vh;
+  height: 100svh;
+  -webkit-app-region: drag;
   user-select: none;
+}
+
+// 当用户在这部分组件中拖动鼠标时，不会触发窗口的拖动行为
+.nodrag,
+svg,
+textarea,
+a,
+input,
+span,
+button {
+  -webkit-app-region: no-drag;
 }

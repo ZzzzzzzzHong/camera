@@ -2,14 +2,11 @@
 import { ref } from 'vue'
 import Camera from './components/Camera.vue'
 import CameraSetting from './components/CameraSetting.vue'
-import Drag from './utils/drag'
 
 const page = ref('camera')
 const changePage = () => {
   page.value === 'camera' ? (page.value = 'setting') : (page.value = 'camera')
 }
-const drag = new Drag()
-drag.setBodyDrag()
 </script>
 
 <template>
