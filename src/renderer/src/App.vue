@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import Camera from './components/Camera.vue'
-import CameraSetting from './components/CameraSetting.vue'
+import Camera from './views/Camera.vue'
+import CameraSetting from './views/CameraSetting.vue'
 
 const page = ref('camera')
 const changePage = () => {

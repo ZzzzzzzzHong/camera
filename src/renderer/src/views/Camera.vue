@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ElMessage } from 'element-plus'
+import { SettingTwo, GraphicDesign } from '@icon-park/vue-next'
 import { onMounted, ref } from 'vue'
 import { useConfig } from '../composables/useConfig'
 defineEmits(['change-page'])
@@ -40,7 +41,7 @@ onMounted(() => {
 
 <template>
   <div
-    class="h-screen w-screen relative overflow-hidden group"
+    class="h-screen w-screen relative overflow-hidden"
     :class="{ 'rounded-full': config.rounded }"
     :style="`border:
     ${config.borderWidth}px
@@ -51,16 +52,19 @@ onMounted(() => {
     <div v-else class="bg-[#c8d6e5] w-full h-full">
       <el-result icon="error" sub-title="请检查摄像头权限"> </el-result>
     </div>
-    <el-icon
-      class="text-stone-300 absolute h-0 z-10 w-full bg-slate-900/60 cursor-pointer top-0 left-1/2 -translate-x-1/2 group-hover:h-8 duration-500"
+    <div
+      class="nodrag w-full h-10 bg-slate-900/50 cursor-pointer absolute bottom-0 left-0 opacity-0 hover:opacity-100 duration-500"
     >
-      <Setting class="hidden group-hover:block" @click="$emit('change-page')" />
-    </el-icon>
-    <el-icon
-      class="text-stone-300 absolute h-0 z-10 w-full bg-slate-900/60 cursor-pointer bottom-0 left-1/2 -translate-x-1/2 group-hover:h-8 duration-500"
-    >
-      <Notification class="hidden group-hover:block" @click="isRounded" />
-    </el-icon>
+      <div class="h-full flex justify-center items-center text-stone-300">
+        <SettingTwo
+          theme="outline"
+          size="16"
+          class="cursor-pointer"
+          @click="$emit('change-page')"
+        />
+        <GraphicDesign theme="outline" size="16" class="cursor-pointer" @click="isRounded" />
+      </div>
+    </div>
   </div>
 </template>
 <style></style>

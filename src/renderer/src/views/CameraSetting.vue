@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { ReverseLens } from '@icon-park/vue-next'
 import { useConfig } from '../composables/useConfig'
-import AuthorInfo from './AuthorInfo.vue'
+import AuthorInfo from '../components/AuthorInfo.vue'
+
 defineEmits(['change-page'])
 
 const { config, updateConfig } = useConfig()
@@ -9,13 +11,13 @@ const cameras = devices.filter((d) => d.kind === 'videoinput') // 获取摄像�
 </script>
 
 <template>
-  <main class="px-4 flex flex-col items-center overflow-hidden bg-[#c8d6e5]">
+  <main class="px-4 flex flex-col items-center overflow-hidden bg-[#f0f7ff]">
     <div
-      class="pt-4 pb-2 flex items-center cursor-pointer text-black"
+      class="pt-4 pb-2 flex items-center cursor-pointer text-black text-sm"
       @click="$emit('change-page')"
     >
-      <el-icon><Camera /></el-icon>
-      <span class="text-xs">参数设置</span>
+      <ReverseLens theme="outline" />
+      <span class="pl-1 text-xs">参数设置</span>
     </div>
     <el-select v-model="config.deviceId" placeholder="请选择摄像头" class="my-2 nodrag">
       <el-option
