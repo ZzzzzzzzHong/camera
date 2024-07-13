@@ -52,15 +52,13 @@ onMounted(() => {
     </div>
     <el-icon
       class="text-stone-300 absolute h-0 z-10 w-full bg-slate-900/60 cursor-pointer top-0 left-1/2 -translate-x-1/2 group-hover:h-8 duration-500"
-      @click="$emit('change-page')"
     >
-      <Setting class="hidden group-hover:block" />
+      <Setting class="hidden group-hover:block" @click="$emit('change-page')" />
     </el-icon>
     <el-icon
       class="text-stone-300 absolute h-0 z-10 w-full bg-slate-900/60 cursor-pointer bottom-0 left-1/2 -translate-x-1/2 group-hover:h-8 duration-500"
-      @click="isRounded"
     >
-      <Notification class="hidden group-hover:block" />
+      <Notification class="hidden group-hover:block" @click="isRounded" />
     </el-icon>
   </div>
 </template>
