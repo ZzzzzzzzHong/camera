@@ -11,7 +11,7 @@ const initConfig: ConfigType = {
   deviceId: '',
   borderColor: '#54a0ff',
   borderWidth: '0',
-  rounded: false
+  rounded: true
 }
 
 export const useConfig = () => {
