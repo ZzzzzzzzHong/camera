@@ -6,6 +6,9 @@ const api = {
   // 拖拽触发
   drag: (option: { x: number; y: number }) => {
     ipcRenderer.send('drag', option)
+  },
+  setAspectRatio: (aspectRatio) => {
+    ipcRenderer.send('setWinAspectRatio', aspectRatio)
   }
 }
 

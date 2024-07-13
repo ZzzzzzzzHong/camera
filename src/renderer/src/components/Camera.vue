@@ -16,6 +16,7 @@ const hasError = ref<boolean>(false)
 const cameraVideo = ref<HTMLVideoElement | null>(null)
 const isRounded = () => {
   config.value.rounded = !config.value.rounded
+  config.value.rounded ? window.api.setAspectRatio(1) : window.api.setAspectRatio(16 / 9)
   updateConfig()
 }
 

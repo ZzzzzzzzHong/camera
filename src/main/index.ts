@@ -7,12 +7,10 @@ import './ipcMain'
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 190,
+    width: 200,
     minWidth: 160,
-    maxWidth: 300,
-    height: 190,
+    height: 200,
     minHeight: 160,
-    maxHeight: 300,
     center: true,
     show: false,
     frame: false, // 去掉应用栏
@@ -27,7 +25,6 @@ function createWindow(): void {
   })
 
   mainWindow.webContents.openDevTools()
-  mainWindow.setAspectRatio(1) // 保持比例缩放
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
   })
