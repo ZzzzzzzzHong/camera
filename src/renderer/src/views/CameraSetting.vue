@@ -13,11 +13,11 @@ const cameras = devices.filter((d) => d.kind === 'videoinput') // 获取摄像�
 <template>
   <main class="px-4 flex flex-col items-center overflow-hidden bg-[#f0f7ff]">
     <div
-      class="pt-4 pb-2 flex items-center cursor-pointer text-black text-sm"
+      class="pt-4 pb-2 flex items-center cursor-pointer text-gray-700"
       @click="$emit('change-page')"
     >
       <ReverseLens theme="outline" />
-      <span class="pl-1 text-xs">参数设置</span>
+      <span class="pl-1 text-sm font-bold">参数设置</span>
     </div>
     <el-select v-model="config.deviceId" placeholder="请选择摄像头" class="my-2 nodrag">
       <el-option
