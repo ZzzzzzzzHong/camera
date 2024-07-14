@@ -26,6 +26,7 @@ function createWindow(): void {
   })
 
   mainWindow.webContents.openDevTools()
+  mainWindow.setSkipTaskbar(true) // 使窗口不显示在任务栏中
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
   })
