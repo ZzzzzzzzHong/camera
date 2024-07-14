@@ -8,9 +8,9 @@ function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 320,
-    minWidth: 160,
+    minWidth: 180,
     height: 180,
-    minHeight: 160,
+    minHeight: 180,
     center: true,
     show: false,
     frame: false, // 去掉应用栏

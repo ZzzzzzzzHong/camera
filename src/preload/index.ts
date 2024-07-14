@@ -7,6 +7,7 @@ const api = {
   drag: (option: { x: number; y: number }) => {
     ipcRenderer.send('drag', option)
   },
+  // 设置窗口比例
   setAspectRatio: (aspectRatio) => {
     ipcRenderer.send('setWinAspectRatio', aspectRatio)
   }
