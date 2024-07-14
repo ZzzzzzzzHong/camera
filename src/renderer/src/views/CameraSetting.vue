@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ReverseLens } from '@icon-park/vue-next'
 import { useConfig } from '../composables/useConfig'
-import AuthorInfo from '../components/AuthorInfo.vue'
 
 defineEmits(['change-page'])
 
@@ -11,12 +10,10 @@ const cameras = devices.filter((d) => d.kind === 'videoinput') // 获取摄像�
 </script>
 
 <template>
-  <main class="px-4 flex flex-col items-center overflow-hidden bg-[#f0f7ff]">
-    <div
-      class="pt-4 pb-2 flex items-center cursor-pointer text-gray-700"
-      @click="$emit('change-page')"
-    >
-      <ReverseLens theme="outline" />
+  <main
+    class="min-h-screen px-4 pb-8 flex flex-col items-center bg-[#f0f7ff] text-gray-700"
+  >
+    <div class="pt-4 pb-2 flex items-center">
       <span class="pl-1 text-sm font-bold">参数设置</span>
     </div>
     <el-select
@@ -37,9 +34,18 @@ const cameras = devices.filter((d) => d.kind === 'videoinput') // 获取摄像�
     </el-input>
     <el-input v-model="config.borderColor" class="mb-2" placeholder="边框颜色">
     </el-input>
-    <el-button type="primary" plain class="w-full" @click="updateConfig"
-      >保存</el-button
-    >
-    <AuthorInfo />
+    <el-button type="primary" plain class="w-full" @click="updateConfig">
+      保存
+    </el-button>
+    <div class="py-2">
+      <el-tooltip content="切回镜头" show-after="500">
+        <ReverseLens
+          theme="outline"
+          size="16"
+          class="cursor-pointer"
+          @click="$emit('change-page')"
+        />
+      </el-tooltip>
+    </div>
   </main>
 </template>
