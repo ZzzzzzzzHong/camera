@@ -11,32 +11,40 @@ const cameras = devices.filter((d) => d.kind === 'videoinput') // 获取摄像�
 
 <template>
   <main
-    class="min-h-screen px-4 pb-8 flex flex-col items-center bg-[#f0f7ff] text-gray-700"
+    class="min-h-screen px-4 pb-8 flex flex-col justify-between items-center bg-[#f0f7ff] text-gray-700"
   >
-    <div class="pt-4 pb-2 flex items-center">
-      <span class="pl-1 text-sm font-bold">参数设置</span>
+    <div class="w-full">
+      <p class="pt-4 pb-2 text-center text-sm font-bold">参数设置</p>
+      <el-select
+        v-model="config.deviceId"
+        placeholder="请选择摄像头"
+        class="my-2 nodrag"
+      >
+        <el-option
+          v-for="camera in cameras"
+          :key="camera.deviceId"
+          :label="camera.label"
+          :value="camera.deviceId"
+          class="nodrag"
+        />
+      </el-select>
+      <el-input
+        v-model="config.borderWidth"
+        class="mb-2"
+        placeholder="边框宽度"
+      >
+        <template #append>px</template>
+      </el-input>
+      <el-input
+        v-model="config.borderColor"
+        class="mb-2"
+        placeholder="边框颜色"
+      >
+      </el-input>
+      <el-button type="primary" plain class="w-full" @click="updateConfig">
+        保存
+      </el-button>
     </div>
-    <el-select
-      v-model="config.deviceId"
-      placeholder="请选择摄像头"
-      class="my-2 nodrag"
-    >
-      <el-option
-        v-for="camera in cameras"
-        :key="camera.deviceId"
-        :label="camera.label"
-        :value="camera.deviceId"
-        class="nodrag"
-      />
-    </el-select>
-    <el-input v-model="config.borderWidth" class="mb-2" placeholder="边框宽度">
-      <template #append>px</template>
-    </el-input>
-    <el-input v-model="config.borderColor" class="mb-2" placeholder="边框颜色">
-    </el-input>
-    <el-button type="primary" plain class="w-full" @click="updateConfig">
-      保存
-    </el-button>
     <div class="py-2">
       <el-tooltip content="切回镜头" show-after="500">
         <ReverseLens
