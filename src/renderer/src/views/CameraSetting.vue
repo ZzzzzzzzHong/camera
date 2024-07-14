@@ -45,7 +45,7 @@ const cameras = devices.filter((d) => d.kind === 'videoinput') // 获取摄像�
         保存
       </el-button>
     </div>
-    <div class="py-2">
+    <div class="pt-2 pb-1">
       <el-tooltip content="切回镜头" show-after="500">
         <ReverseLens
           theme="outline"
